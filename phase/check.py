@@ -4,6 +4,7 @@ import phase.phase_constants as phase_constants
 from utility import print_abilities_points
 from hero_data import available_points
 from hero_update import hero_update
+from save_load import save_game
 
 
 def end_game_choice():
@@ -63,8 +64,8 @@ def phase_check(next_phase):
             hero_check()
             continue
         elif choice =="2":
-            #TODO save_game
-            continue
+            save_game(next_phase)
+
         elif choice =="3":
             if end_game_choice():
                 return phase_constants.END

@@ -2,8 +2,8 @@ import hero_data
 import phase.phase_constants as phase_constants
 def name_phase():
     while True:
-       # name = input("Ako sa bude volať tvoj hrdina?: ")
-        name="PEto"
+        name = input("Ako sa bude volať tvoj hrdina?: ")
+        #name="PEto"
         print("Si si istý, ze sa tvoj hrdina bude volať " + name + "?")
         print("0 - Nie, chcem zmeniť meno\n1 - Áno")
        # choice = input("Aká je tvoja voľba?: ")

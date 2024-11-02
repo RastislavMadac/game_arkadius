@@ -6,8 +6,8 @@ INTRO_TEXT = "Práve si zapol hru Arkadius, v ktorej budeš bojovať proti prí�
 def intro_phase():
     while True:
         print(INTRO_TEXT)
-       # intro_choice = input("Aká je tvoja voľba?: ")
-        intro_choice="1"
+        intro_choice = input("Aká je tvoja voľba?: ")
+        #intro_choice="1"
         if intro_choice not in ["0", "1"]:
             print("Netrafil si ani jednu možnú voľbu. Musím sa ťa spýtať ešte raz.")
             continue
