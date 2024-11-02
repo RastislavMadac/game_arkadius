@@ -10,7 +10,7 @@ abilities = {
 },
     "Obrana": {
         "points": 1,
-        "description": "Celkový obrana sa ráta z bodov obrany +         obratnosti."
+        "description": "Celkový obrana sa ráta z bodov obrany + obratnosti."
 },
     "Obratnosť": {
         "points": 1,
@@ -18,11 +18,11 @@ abilities = {
 },
     "Skill": {
         "points": 1,
-        "description": "SKill je dôležitý pri normálnom útoku ako aj         kritickom útoku"
+        "description": "SKill je dôležitý pri normálnom útoku ako aj kritickom útoku"
 },
     "Život": {
         "points": 50,
-        "description": "Život je dôležitý pri bitke. Život sa dá        doplniť po každom súboji."
+        "description": "Život je dôležitý pri bitke. Život sa dá doplniť po každom súboji."
     },
     "Šťastie": {
         "points": 1,

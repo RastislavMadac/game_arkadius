@@ -51,8 +51,8 @@ def phase_check(next_phase):
         print("2 - Uložiť hru")
         print("3 - Ukončiť hru")
 
-        #choice=input("Aký je tvoj další krok?")
-        choice = "1"
+        choice=input("Aký je tvoj další krok?")
+        #choice = "1"
         if choice not in ["0", "1", "2", "3"]:
             print("Netrafil si ani jednú možnú voľbu. Musím sa ťa spýtať ešte raz")
             continue
