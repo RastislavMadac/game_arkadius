@@ -1,4 +1,5 @@
 import phase.phase_constants as phase_constants
+
 INTRO_TEXT = "Práve si zapol hru Arkadius, v ktorej budeš bojovať proti príšerám a pri tom si zlepšovať svojho hrdinu. Si na to pripravený?" \
              "\n 0 - Nie, bojím sa. \n 1 - Áno, poďme na to."
 
