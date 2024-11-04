@@ -21,7 +21,7 @@ def save_game(phase):
             print()
             break
         else:
-            print("Tvoj súbor neobsahuje iba písmena. Skús ešte raz pos iným názvom")
+            print("Tvoj súbor neobsahuje iba písmena. Skús ešte raz pod iným názvom")
             continue
 
 
