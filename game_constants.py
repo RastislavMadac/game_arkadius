@@ -1,2 +1,2 @@
 DIVIDER = "--------------------------------------------------------"
-INTRO_ABILITIES_COUNT = 1
+INTRO_ABILITIES_COUNT = 7

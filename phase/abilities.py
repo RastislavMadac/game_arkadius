@@ -1,6 +1,11 @@
 import hero_data
 from utility import print_abilities_points, print_abilities_options, print_abilities_description
+
+
+
 def abilities_update(available_points):
+    hero_data.available_points+=available_points
+
     print(hero_data.hero_name + ", Tvoje schopnosti sú momentálne na tom takto:")
     print_abilities_points()
     print("Máš " + str(

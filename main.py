@@ -10,6 +10,8 @@ from fight.battle import battle
 
 current_phase = phase_constants.START
 
+
+
 continue_game = True
 while continue_game:
 
@@ -31,7 +33,19 @@ while continue_game:
         current_phase = phase_check(phase_constants.FIGHT)
     elif current_phase == phase_constants.FIGHT:
         print(game_constants.DIVIDER)
-        battle(hero_data.fight_level)
-        break
 
+        win, health_remining= battle(hero_data.fight_level)
 
+        if win:
+            #Bojovník vyhral
+            print(f"Po výťaznej bitke ti ostal život {str(health_remining)} / {str(hero_data.abilities['Život']['points'])}")
+            print(game_constants.DIVIDER)
+            print(f"Po tvojej {str(hero_data.fight_level)} výhre ti pridávam {str(hero_data.fight_level)} body ktoré môžeš použiť na upravenie svojho hrdinu. ")
+            abilities_update(hero_data.fight_level)
+            hero_data.fight_level+=1
+            print(game_constants.DIVIDER)
+        else:
+            print(f"Potrebuješ si oddýchnuť a možno aj prehodnotiť svoje schopnosti, máš {hero_data.abilities['Život']['points']} života")
+            print(game_constants.DIVIDER)
+
+        hero_data.abilities["Život"]["points"] = health_remining
