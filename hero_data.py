@@ -3,6 +3,8 @@ hero_name=""
 
 available_points = 3
 
+fight_level=1
+
 abilities = {
     "Útočná sila": {
         "points": 1,

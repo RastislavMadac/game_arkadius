@@ -59,6 +59,7 @@ def phase_check(next_phase):
             continue
 
         if choice =="0":
+
            return next_phase
         elif choice =="1":
             hero_check()
@@ -74,26 +75,6 @@ def phase_check(next_phase):
                 continue
 
 
-    # print_check_points()
-    # check_points= False
-    # while not check_points:
-    #     option=str(input("Vyber si jednu z možností: "))
-    #     if option==0:
-    #        return next_phase
-    #     elif option == 1 or option==2:
-    #         continue
-    #     elif option==3:
-    #         print("Si si istý že chceš ukončiť hru?\n 0 - Späť \n 1 - Áno, ukončiť")
-    #         end_game=input("Naozaj ukončiť? ")
-    #         if end_game==0:
-    #             continue
-    #         elif end_game==1:
-    #             print(DIVIDER)
-    #             print("Dovidenia")
-    #             break
-    #     else:
-    #         print("Netrafil si ani jednu možnú voľbu. Musím sa ťa spýtať ešte raz.")
-    #         continue
 
 
 
