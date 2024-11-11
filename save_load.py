@@ -2,7 +2,7 @@ import hero_data
 from os import listdir
 import game_constants
 
-def save_game(phase):
+def save_game(next_phase, fight_level):
     print("Pod akým názvom chceš uložiť hru?(Názov nesmie obsahovať špeciálne znaky, čísla a medzeri")
     while True:
         save_name= input("Názov - ")
@@ -10,11 +10,15 @@ def save_game(phase):
             #save_file
             file_path= "saved/" + save_name + ".txt"
             file_handler= open(file_path, "w", encoding="utf-8")
-            file_handler.write(hero_data.hero_name+ "\n")
+            file_handler.write(hero_data.hero_name)
+            file_handler.write("\n")
             for k,v in hero_data.abilities.items():
                  file_handler.write(k + " - " +str(v["points"]))
                  file_handler.write("\n")
-            file_handler.write(phase + "\n")
+            file_handler.write(str(fight_level))
+            file_handler.write("\n")
+            file_handler.write(next_phase)
+            file_handler.write("\n")
             file_handler.write(str(hero_data.available_points))
             file_handler.close()
             print("Úspešne som uložil hru.")
@@ -33,14 +37,16 @@ def load(file):
     name_loaded=False
     abilities_loaded =False
     abilities_loaded_counter=0
+    fight_level_loaded = False
     next_phase_loaded=False
     next_phase=""
     avalaible_points=False
 
+
     for line in file_handler:
-       line = line.rstrip()
+
        if not name_loaded:
-          hero_name=line
+          hero_name=line.rstrip()
           hero_data.hero_name=hero_name
           name_loaded=True
        elif not abilities_loaded:
@@ -49,12 +55,16 @@ def load(file):
            abilities_loaded_counter+=1
            if abilities_loaded_counter==len(hero_data.abilities):
                abilities_loaded=True
+       elif not fight_level_loaded:
+           hero_data.fight_level = int(line.rstrip())
+           fight_level_loaded = True
        elif not next_phase_loaded:
-           next_phase=line
+           next_phase=line.rstrip()
            next_phase_loaded=True
        elif not avalaible_points:
-           hero_data.available_points=int(line)
+           hero_data.available_points=int(line.rstrip())
            avalaible_points = True
+
     return True, next_phase
 
 

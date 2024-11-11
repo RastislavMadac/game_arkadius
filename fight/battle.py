@@ -2,7 +2,10 @@ from enemy_data import enemies
 import time
 from hero_data import abilities
 import game_constants
+import utility
 import random
+
+from utility import print_abilities_options
 
 
 def calculate_hero_attack():
@@ -48,6 +51,9 @@ def simulate_battle(hero, enemy):
     time.sleep(3)
     print(game_constants.DIVIDER)
     print("\nZačíname súboj ako prvý útočiš ty.\n")
+
+# def battle_check():
+#     utility,print_abilities_options(True)
 
     hero_turn=True
     while True:
@@ -106,6 +112,7 @@ def simulate_battle(hero, enemy):
 
         hero_turn=not hero_turn
         time.sleep(1)
+
 
 
 def battle(fight_level):
