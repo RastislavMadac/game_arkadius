@@ -1,8 +1,7 @@
 import game_constants
 import hero_data
 import phase.phase_constants as phase_constants
-
-
+from item.item import item_check, loose_item_after_lost_battle
 from phase.abilities import abilities_update
 from phase.intro import intro_phase
 from phase.name import name_phase
@@ -45,6 +44,12 @@ while continue_game:
                 continue
             #Bojovník vyhral
             print(f"Po výťaznej bitke ti ostal život {str(health_remining)} / {str(hero_data.abilities['Život']['points'])}")
+            print("Po pridávaní bodov a voľby predmetu si budeš môcť doplniť život.")
+
+            item_check(hero_data.fight_level)
+
+
+
             print(game_constants.DIVIDER)
             print(f"Po tvojej {str(hero_data.fight_level)} výhre ti pridávam {str(hero_data.fight_level)} body ktoré môžeš použiť na upravenie svojho hrdinu. ")
             abilities_update(hero_data.fight_level)
@@ -52,6 +57,8 @@ while continue_game:
             is_boss_fight= hero_data.fight_level==game_constants.BOSS_FIGHT_LEVEL
             print(game_constants.DIVIDER)
         else:
+            loose_item_after_lost_battle()
+
             print(f"Potrebuješ si oddýchnuť a možno aj prehodnotiť svoje schopnosti, máš {hero_data.abilities['Život']['points']} života")
             print(game_constants.DIVIDER)
 

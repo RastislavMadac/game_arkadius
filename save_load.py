@@ -1,6 +1,7 @@
 import hero_data
 from os import listdir
 import game_constants
+from item.item import get_item_by_name
 
 def save_game(next_phase, fight_level):
     print("Pod akým názvom chceš uložiť hru?(Názov nesmie obsahovať špeciálne znaky, čísla a medzeri")
@@ -20,6 +21,10 @@ def save_game(next_phase, fight_level):
             file_handler.write(next_phase)
             file_handler.write("\n")
             file_handler.write(str(hero_data.available_points))
+            file_handler.write("\n")
+            for item in hero_data.hero_items:
+                file_handler.write(item['name'])
+                file_handler.write("\n")
             file_handler.close()
             print("Úspešne som uložil hru.")
             print()
@@ -41,6 +46,7 @@ def load(file):
     next_phase_loaded=False
     next_phase=""
     avalaible_points=False
+    hero_items_loaded= False
 
 
     for line in file_handler:
@@ -64,6 +70,10 @@ def load(file):
        elif not avalaible_points:
            hero_data.available_points=int(line.rstrip())
            avalaible_points = True
+       elif not hero_items_loaded:
+           item_name = line.rstrip()
+           hero_data.hero_items.append(get_item_by_name(item_name))
+
 
     return True, next_phase
 

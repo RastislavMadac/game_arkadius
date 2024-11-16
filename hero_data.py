@@ -5,6 +5,8 @@ available_points = 3
 
 fight_level=1
 
+hero_items=[]
+
 abilities = {
     "Útočná sila": {
         "points": 1,

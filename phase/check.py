@@ -4,7 +4,7 @@ import enemy_data
 import game_constants
 import hero_data
 import phase.phase_constants as phase_constants
-from utility import print_abilities_points
+from utility import print_abilities_points, print_items
 from hero_data import available_points, fight_level
 from hero_update import hero_update
 from save_load import save_game
@@ -25,15 +25,15 @@ def end_game_choice():
         elif choice == "1":
             return True
 
-def battle_check(fight_level, max_health):
-    enemy_name= enemy_data.enemies[fight_level]["name"]
+def battle_check(fight_leve, max_health):
+    enemy_name= enemy_data.enemies[fight_leve]["name"]
     fight_against_text=""
     if fight_against_text==game_constants.BOSS_FIGHT_LEVEL:
         fight_against_text="Posledný súboj."+ enemy_name
     else:
         fight_against_text=enemy_name
     while True:
-        print("0 - Odýchnuť si -" + rest_text(max_health) )
+        print("0 - Odýchnuť si -" + rest_text(max_health))
         print("1 - Bojovať proti -"+ fight_against_text)
         print("2 - Upravit hrdinu")
         print("3 - Uložiť hru")
@@ -77,6 +77,12 @@ def rest_text(max_health):
 def hero_check():
     print(f"{hero_data.hero_name} tvoje schopnosti vyzerajú takto")
     print_abilities_points()
+
+    if len(hero_data.hero_items)>0:
+        print("Máš nasledujúce predmety (body sú už započítané v schopnostiach):")
+        print_items()
+    else:
+        print("Nemáš žiadne predmety")
     print(f"Máš {available_points} bodov na pridávanie schopností")
 
     while True:
@@ -100,8 +106,15 @@ def hero_check():
 
 
 def phase_check(next_phase):
+    if next_phase==phase_constants.FIGHT:
+        continue_text = f"Súboj - LEVEL {str(hero_data.fight_level)}"
+        if hero_data.fight_level == game_constants.BOSS_FIGHT_LEVEL:
+            continue_text = f"Posledný {continue_text}"
+    else:
+        continue_text=next_phase
+
     while True:
-        print("0 - Pokračovať na", next_phase)
+        print("0 - Pokračovať na", continue_text)
         print("1 - Upraviť hrdinu")
         print("2 - Uložiť hru")
         print("3 - Ukončiť hru")

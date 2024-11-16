@@ -1,5 +1,10 @@
 from hero_data import abilities
+import hero_data
 from game_constants import DIVIDER
+
+def print_items():
+    for item in hero_data.hero_items:
+        print(f"{item['name']} - {item['description']}")
 
 def print_abilities_description():
   print(DIVIDER)
